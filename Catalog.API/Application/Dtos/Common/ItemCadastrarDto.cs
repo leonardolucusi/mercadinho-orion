@@ -1,3 +1,4 @@
+using BuildingBlocks.ResponseUtility;
 using FluentValidation;
 
 namespace Catalog.Api.Application.Dtos.Common;
@@ -18,6 +19,6 @@ public class ItemValidator : AbstractValidator<ItemCadastrarDto>
     {
         RuleFor(x => x.Name).NotEmpty()
             .WithMessage("Nome nao pode ser vazio teste")
-            .WithErrorCode("REQUIRED");  
+            .WithErrorCode(nameof(ValidationCode.Code.Required));  
     }
 }
