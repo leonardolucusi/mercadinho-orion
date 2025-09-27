@@ -7,7 +7,7 @@ var services = builder.Services;
 
 services
     .AddEndpointsApiExplorer()
-    .AddApplicationDependencyInjection()
+    .AddDependencyInjection(builder.Configuration)
     .AddSwaggerGen()
     .AddValidatorsFromAssembly(typeof(Program).Assembly);
 
