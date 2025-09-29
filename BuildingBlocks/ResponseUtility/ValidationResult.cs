@@ -5,7 +5,7 @@ public class ValidationResult
     public ValidationResult(){}
     public List<string> Messages { get; set; } = [];
     public List<ValidationCode.Code> Codes { get; set; } = [];
-    public bool IsValid { get; private set; } = true;
+    public bool Validity { get; private set; } = true;
     public ValidationResult(ValidationCode.Code code, string message, bool isValid) =>
         Add(code, message, isValid);
     public void ApplyFluentValidationResult(
@@ -15,7 +15,7 @@ public class ValidationResult
         {
             Messages.Add($"{x.PropertyName}: {x.ErrorMessage}");
             Codes.Add(ValidationCode.CodesDictionary[x.ErrorCode]);
-            IsValid = fluentValidationResult.IsValid;
+            Validity = fluentValidationResult.IsValid;
         });
     }
 
@@ -23,6 +23,6 @@ public class ValidationResult
     {
         Messages.Add(message);
         Codes.Add(code);
-        IsValid = isValid;   
+        Validity = isValid;   
     }
 }
