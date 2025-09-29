@@ -1,11 +1,10 @@
 using BuildingBlocks.ResponseUtility;
 using FluentValidation;
 
-namespace Catalog.Api.Application.Dtos.Common;
+namespace Catalog.Api.Application.Dtos.Command;
 
-public record ItemCadastrarDto()
+public record ItemRegisterDto()
 {
-    public int Id { get; set; }
     public string Name { get; set; }
     public string Description { get; set; }
     public decimal Price { get; set; }
@@ -13,12 +12,12 @@ public record ItemCadastrarDto()
     public string ImageFile { get; set; }
 }
 
-public class ItemValidator : AbstractValidator<ItemCadastrarDto>
+public class ItemValidator : AbstractValidator<ItemRegisterDto>
 {
     public ItemValidator()
     {
         RuleFor(x => x.Name).NotEmpty()
-            .WithMessage("Nome nao pode ser vazio teste")
+            .WithMessage("Name can't be empty")
             .WithErrorCode(nameof(ValidationCode.Code.Required));  
     }
 }

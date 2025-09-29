@@ -1,13 +1,14 @@
 using Catalog.Api.API;
+using Catalog.Api.Application;
 using Catalog.Api.Infrastructure;
 using FluentValidation;
 
 var builder = WebApplication.CreateBuilder(args);
 var services = builder.Services;
 
-services
-    .AddEndpointsApiExplorer()
-    .AddDependencyInjection(builder.Configuration)
+services.AddEndpointsApiExplorer()
+    .AddInfrastructureDependencyInjection(builder.Configuration)
+    .AddApplicationDependencyInjection()
     .AddSwaggerGen()
     .AddValidatorsFromAssembly(typeof(Program).Assembly);
 

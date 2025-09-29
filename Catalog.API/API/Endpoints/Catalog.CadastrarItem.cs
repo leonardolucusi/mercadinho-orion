@@ -1,6 +1,6 @@
 using BuildingBlocks.ResponseUtility;
 using Catalog.Api.Application.Commands;
-using Catalog.Api.Application.Dtos.Common;
+using Catalog.Api.Application.Dtos.Command;
 
 namespace Catalog.Api.API.Endpoints;
 
@@ -8,7 +8,7 @@ internal partial class CatalogGroup
 {
     private static async Task<Response> CadastrarItem(
         ICommandHandler commandHandler,
-        ItemCadastrarDto content,
+        ItemRegisterDto content,
         CancellationToken cancellationToken
     )
     {

@@ -1,7 +1,8 @@
 namespace Catalog.Api.Application.Dtos.Command;
 
-public record ItemCadastradoDto
+public record ItemRegisteredDto
 {
+    public int Id { get; set; }
     public string Name { get; set; }
     public string Description { get; set; }
     public decimal Price { get; set; }
