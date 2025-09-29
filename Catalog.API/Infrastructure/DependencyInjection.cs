@@ -12,7 +12,7 @@ public static class InfrastructureDependencyInjection
         IConfiguration configuration)
     {
         services.AddDbContext<Context>(options =>
-            options.UseNpgsql(configuration.GetConnectionString("ConnectionString")));
+            options.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));
         
         services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
         services.AddScoped<IUnitOfWork, UnitOfWork>();
